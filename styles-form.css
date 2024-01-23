@@ -1,0 +1,301 @@
+:root {
+    --second-main: #F49C89;
+    --main-text: #ECEEF8;
+    --main: #34344E;
+    --sub-text: #FFF;
+    --line-color: rgba(52, 52, 78, 0.50);
+  }
+
+body{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100vh;
+}
+
+main{
+    flex: 1;
+}
+
+label{
+    cursor: pointer;
+}
+
+input::placeholder{
+    color: var(--second-main);
+    opacity: 0.4;
+}
+
+.main-form__fieldset{
+    font-family: Inter, sans-serif;
+    background-color: #FFF;
+    padding: 30px;
+}
+.main-form{
+    margin-top: 70px;
+    margin-bottom: 200px;
+}
+
+.form__name{
+    font-family: Inter, sans-serif;
+    margin-bottom: 50px;
+    text-align: center;
+    font-size: 3rem;
+}
+.fieldset-personal{
+    margin-bottom: 50px;
+}
+
+.list__string{
+    font-size: 1.3rem;
+    color: var(--main);
+    margin-bottom: 30px;
+}
+
+.main-form__legend{
+    font-size: 2rem;
+}
+
+.main-form__input{
+    border: none; outline: none; box-shadow: none;
+    border-bottom: 2px solid var(--main);
+    padding: 5px;
+    font-size: 1.3rem;
+}
+.main-form__input:focus {
+    background-color: rgba(52, 52, 78, 0.10);
+  }
+
+  .fieldset-contact{
+    margin-bottom: 60px;
+  }
+
+  .list__string--radio{
+    margin-top: 30px;
+    font-size: 1.3rem;
+    font-size: 1rem;
+  }
+
+  .list__string--radio p {
+    margin-bottom: 30px;
+  }
+
+
+.list__string--radio input[type=radio]{
+    display: none;
+}
+
+.list__string--radio label{
+    text-transform: uppercase;
+    margin-bottom: 19px;
+    position: relative;
+    user-select: none;
+    display: inline-block;
+    cursor: pointer;
+    margin-left: 40px
+
+}
+
+.list__string--radio label:before{
+    content: '';
+    display: inline-block;
+    position: absolute;
+    width: 24px;
+    height: 24px;
+    top: -4px;
+    left: -34px;
+    background: url('img/radio-btns.svg') 0 0 no-repeat;
+}
+
+.list__string--radio input[type=radio]:checked + label:before{
+    background: url('img/radio-btns-ch.svg') 0 0 no-repeat;
+}
+
+
+
+
+.main-form__button{
+    border: none; outline: none; box-shadow: none;
+    background-color: inherit;
+    color:var(--main-text);
+    background-color: var(--second-main);
+    padding: 10px;
+    font-size: 1.3rem;
+    border-radius: 15px;
+}
+
+.main-form__button--reset{
+    margin-left: 50px;
+}
+
+.main-form__button:hover{
+    transition: 0.3s;
+    background-color: var(--main);
+    color: var(--second-main);
+}
+
+.main-form__button--submit:focus{
+    color: var(--main-text);
+}
+
+
+label[for='passw']:focus-within,
+label[for='mail']:focus-within,
+label[for='phone']:focus-within,
+label[for='name']:focus-within,
+label[for='birthday']:focus-within {
+    color: var(--second-main);
+}
+
+.fieldset-personal__label--required{
+    border-left: 2px solid var(--main);
+    padding-left: 5px;
+}
+
+
+.plus-minus {
+    top: 6px;
+    margin-left: 10px;
+    --primary: #1E2235;
+    --secondary: #FAFBFF;
+    --duration: .5s;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -webkit-tap-highlight-color: transparent;
+    -webkit-mask-image: -webkit-radial-gradient(white, black);
+    outline: none;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 120px;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    border: 2px solid var(--primary);
+    background-size: 300% 300%;
+    transition: transform .3s;
+    transform: scale(var(--scale, 1)) translateZ(0);
+    animation: var(--name, unchecked) var(--duration) ease forwards;
+    &:before,
+    &:after {
+        content: '';
+        position: absolute;
+        width: 8px;
+        height: var(--height, 8px);
+        left: 3px;
+        top: var(--top, 3px);
+        background: var(--background, var(--primary));
+        animation: var(--name-icon-b, var(--name-icon, unchecked-icon)) var(--duration) ease forwards;
+    }
+    &:before {
+        clip-path: polygon(0 3px, 3px 3px, 3px 0, 5px 0, 5px 3px, 8px 3px, 8px 5px, 5px 5px, 5px 8px, 3px 8px, 3px 5px, 0 5px);
+    }
+    &:after {
+        --height: 2px;
+        --top: 6px;
+        --background: var(--secondary);
+        --name-icon-b: var(--name-icon-a, checked-icon);
+    }
+    &:active {
+        --scale: .95;
+    }
+    &:checked {
+        --name: checked;
+        --name-icon-b: checked-icon;
+        --name-icon-a: unchecked-icon;
+    }
+}
+
+@keyframes checked-icon {
+    from {
+        transform: translateZ(6px);
+    }
+    to {
+        transform: translateX(8px) rotateY(90deg) translateZ(6px);
+    }
+}
+
+@keyframes unchecked-icon {
+    from {
+        transform: translateX(-16px) rotateY(-90deg) translateZ(12px);
+    }
+    to {
+        transform: translateZ(12px);
+    }
+}
+
+@keyframes checked {
+    from {
+        background-image: radial-gradient(ellipse at center, var(--primary) 0%, var(--primary) 25%, var(--secondary) 25.1%, var(--secondary) 100%);
+        background-position: 100% 50%;
+    }
+    to {
+        background-image: radial-gradient(ellipse at center, var(--primary) 0%, var(--primary) 25%, var(--secondary) 25.1%, var(--secondary) 100%);
+        background-position: 50% 50%;
+    }
+}
+
+@keyframes unchecked {
+    from {
+        background-image: radial-gradient(ellipse at center, var(--secondary) 0%, var(--secondary) 25%, var(--primary) 25.1%, var(--primary) 100%);
+        background-position: 100% 50%;
+    }
+    to {
+        background-image: radial-gradient(ellipse at center, var(--secondary) 0%, var(--secondary) 25%, var(--primary) 25.1%, var(--primary) 100%);
+        background-position: 50% 50%;
+    }
+}
+
+
+.logo{
+    transform: rotate(-30deg) skew(10deg, 10deg) scale(2);
+}
+
+
+dt::first-letter{
+    font-size: 2rem;
+    color: var(--second-main);
+}
+dd::before{
+    content: '\01F6C8';
+    color: var(--second-main);
+    margin-right: 5px;
+}
+
+.main-form--2__fieldset input{
+    display: none;
+}
+
+.main-form--2__fieldset label{
+    position: relative;
+}
+
+.main-form--2__fieldset label::after{
+    content: '';
+    position: absolute;
+    bottom: 40%;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: var(--main);
+    transition: width 0.3s ease; 
+}
+
+.main-form--2__fieldset input:checked + label::after{
+    transition-duration: 1s;
+    transition: cubic-bezier();
+    width: 100%;
+}
+
+.main-form--2 li:nth-child(even){
+    border-left: 2px solid var(--main);
+    padding-left: 5px;
+    margin-top: 10px;
+}
+
+.main-form--2 li:nth-child(odd){
+    border-left: 2px solid var(--second-main);
+    padding-left: 5px;
+    margin-top: 10px;
+}
